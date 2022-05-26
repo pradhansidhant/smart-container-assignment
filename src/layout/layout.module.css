@@ -1,0 +1,32 @@
+.layout {
+    display: grid;
+    grid-template-columns: 18rem 1fr;
+    grid-template-rows: 80px 1fr 80px;
+    min-height: 100vh;
+  }
+
+  .header {
+    grid-area: 1 / 1 / 2 / 3;
+    font-weight: bold;
+    background-image: url("../assets/images/logo.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .aside {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+  
+  .main {
+    grid-area: 2 / 2 / 3 / 3;
+    grid-area: 2 / 2 / 3 / 3;
+    margin: 20px;
+    margin-top: 0px;
+  }
+  
+  .footer {
+    grid-area: 3 / 2 / 4 / 3;
+  }
