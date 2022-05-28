@@ -1,4 +1,54 @@
-.dropdown{
-    width: 200px;
-    float: right;
+.dropdown {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.chartContainer {
+    margin-top: 40px;
+}
+
+.chartTitle {
+    font-weight: 500;
+    text-align: center;
+    flex-direction: column;
+    flex: 0 0 33.333333%;
+}
+
+
+.chartWrapperTitle {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.chartWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.temperatureWrapper{
+    display: inline-flex;
+}
+.temperatureContent{
+   margin: auto;
+}
+.temperatureContentTitle{
+    color: #22E3A7;
+    font-weight: 700;
+    font-size: large;
+}
+.temperatureContentDescription{
+    color: #D1D1D1;
+    font-size: small;
+}
+.batteryContentTitle{
+    color: #22E3A7;
+    font-weight: 700;
+    font-size: large;
+}
+
+.chartContent {
+    flex-direction: column;
+    flex: 0 0 33.333333%;
+    text-align: center;
 }

@@ -16,7 +16,7 @@ const Temperature = (props) => {
 };
 
 Temperature.defaultProps = {
-    color: "blue",
+    color: "#22E3A7",
     minValue: 0,
     maxValue: 100,
     currentValue: 0,

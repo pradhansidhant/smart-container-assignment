@@ -1,0 +1,28 @@
+.batteryContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .batteryOuter {
+    border-radius: 3px;
+    border: 1px solid #444;
+    padding: 1px;
+  }
+  
+  .batteryBump {
+    border: 1px solid #444;
+    margin: 2px;
+    width: 10px;
+    height: 20px;
+  }
+  
+  .batteryLevel {
+    border-radius: 2px;
+  }
+  

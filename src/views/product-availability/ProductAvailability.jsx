@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductAvailability = props => {
+const ProductAvailability = () => {
   return <div>Product Availability</div>;
 };
 
