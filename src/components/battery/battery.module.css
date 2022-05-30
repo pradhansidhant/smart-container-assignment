@@ -24,5 +24,7 @@
   
   .batteryLevel {
     border-radius: 2px;
+    flex-direction: row;
+    display: flex
   }
   

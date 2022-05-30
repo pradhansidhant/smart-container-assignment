@@ -8,7 +8,7 @@ const MyMapComponent = ({center, zoom}) => {
             center: center,
             zoom: zoom,
         });
-    },[]);
+    });
 
     return <div ref={ref} id="map" style={{display: "flex", width: 800, height: 800}}/>;
 }

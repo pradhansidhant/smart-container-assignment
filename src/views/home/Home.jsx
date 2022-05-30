@@ -56,7 +56,7 @@ const Home = () => {
             <div className={style.chartWrapper}>
               <div className={style.chartContent}>
                 <div className={style.temperatureWrapper}>
-                <Temperature currentValue={parseInt(kegTracker.temperature)} />
+                <Temperature currentValue={kegTracker.temperature} />
                 <div className={style.temperatureContent}>
                   <div className={style.temperatureContentTitle}>
                    {kegTracker.temperature} &#8451;
@@ -71,7 +71,7 @@ const Home = () => {
                 <Volume volumePercentage={kegTracker.volume}/>
               </div>
               <div className={style.chartContent} >
-                <Battery batteryLevel={parseInt(kegTracker.Battery)}/>
+                <Battery batteryLevel={kegTracker.Battery}/>
                 <div className={style.batteryContentTitle}>
                    {kegTracker.Battery}%
                  </div>
