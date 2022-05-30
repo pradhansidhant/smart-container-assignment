@@ -13,6 +13,6 @@
 .typeContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 20px 0px;
 }

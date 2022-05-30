@@ -15,19 +15,26 @@ const Inventory = () => {
     {
       name: 'Type Color',
       id: "type",
-      cell: (row, rowIndex, column, id) => {
+      cell: (row) => {
         let bgColor = ""
         if(typeColor[row?.type]){
           bgColor = typeColor[row.type]
         }
         return (<div className={style.typeBgColor} style={{ backgroundColor: bgColor }}> </div>)
       },
-
+      width: "120px",
+      style:{
+        justifyContent: "center"
+      }
     },
     {
       name: 'BatchID',
       selector: row => row.batchNumber,
-      sortable: true
+      sortable: true,
+      width: "90px",
+      style:{
+        justifyContent: "center"
+      }
     },
     {
       name: 'Current location',

@@ -16,7 +16,7 @@ const MyMapComponent = ({center, zoom}) => {
 const GoogleMap = ({latitude, longitude}) => {
     return (
         <div className=''>
-        <Wrapper apiKey={""}>
+        <Wrapper apiKey={"MAP-API-KEY"}>
             <MyMapComponent center={{
                 lat: latitude,
                 lng: longitude
