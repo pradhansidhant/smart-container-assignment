@@ -23,7 +23,6 @@ const Home = () => {
 
   const handleOnChangeKegTracker = (value) => {
     if (Array.isArray(value) && value.length > 0) {
-      console.log(value[0])
       setKegTracker(value[0])
     }
   }

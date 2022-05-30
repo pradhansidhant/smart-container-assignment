@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Wrapper } from "@googlemaps/react-wrapper";
 
-const MyMapComponent = ({center, zoom}) => {
+const MapComponent = ({center, zoom}) => {
     const ref = useRef();
     useEffect(() => {
         new window.google.maps.Map(ref.current, {
@@ -17,7 +17,7 @@ const GoogleMap = ({latitude, longitude}) => {
     return (
         <div className=''>
         <Wrapper apiKey={"MAP-API-KEY"}>
-            <MyMapComponent center={{
+            <MapComponent center={{
                 lat: latitude,
                 lng: longitude
             }}
