@@ -33,16 +33,17 @@
    margin: auto;
 }
 .temperatureContentTitle{
-    color: #22E3A7;
+    color: #25C4DF;
     font-weight: 700;
     font-size: large;
 }
 .temperatureContentDescription{
-    color: #D1D1D1;
+    color: #C8C5C8;
     font-size: small;
+    width: 120px
 }
 .batteryContentTitle{
-    color: #22E3A7;
+    color: #25C4DF;
     font-weight: 700;
     font-size: large;
 }
@@ -51,4 +52,10 @@
     flex-direction: column;
     flex: 0 0 33.333333%;
     text-align: center;
+}
+
+.mapContainer{
+    flex-direction: column;
+    flex: 100%;
+    margin-top: 50px;
 }

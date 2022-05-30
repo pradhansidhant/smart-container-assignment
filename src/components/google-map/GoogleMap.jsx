@@ -13,13 +13,13 @@ const MyMapComponent = ({center, zoom}) => {
     return <div ref={ref} id="map" style={{display: "flex", width: 800, height: 800}}/>;
 }
 
-const GoogleMap = () => {
+const GoogleMap = ({latitude, longitude}) => {
     return (
         <div className=''>
         <Wrapper apiKey={""}>
             <MyMapComponent center={{
-                lat: 19.6195,
-                lng: 74.6567
+                lat: latitude,
+                lng: longitude
             }}
                 zoom={16} />
         </Wrapper>

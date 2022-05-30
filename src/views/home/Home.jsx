@@ -3,6 +3,7 @@ import Battery from '../../components/battery/Battery';
 import Dropdown from '../../components/dropdown/Dropdown';
 import GoogleMap from '../../components/google-map/GoogleMap';
 import Temperature from '../../components/temperature/Temperature';
+import Volume from '../../components/volume/Volume';
 import style from './home.module.css';
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
 
   const handleOnChangeKegTracker = (value) => {
     if (Array.isArray(value) && value.length > 0) {
+      console.log(value[0])
       setKegTracker(value[0])
     }
   }
@@ -66,7 +68,7 @@ const Home = () => {
                 </div>
               </div>
               <div className={style.chartContent}>
-                Test
+                <Volume volumePercentage={kegTracker.volume}/>
               </div>
               <div className={style.chartContent} >
                 <Battery batteryLevel={parseInt(kegTracker.Battery)}/>
@@ -75,7 +77,9 @@ const Home = () => {
                  </div>
               </div>
             </div>
-            <GoogleMap />
+            <div className={style.mapContainer}>
+            <GoogleMap latitude={kegTracker.latitude} longitude={kegTracker.longitude}/>
+          </div>
           </div>
         )}
       </div>
