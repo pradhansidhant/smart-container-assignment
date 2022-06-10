@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Table from '../../components/table/Table';
+import { getAllKegs } from '../../store/api/KegAPI';
 import style from './inventory.module.css'
 const Inventory = () => {
   const typeColor = {
@@ -17,13 +18,13 @@ const Inventory = () => {
       id: "type",
       cell: (row) => {
         let bgColor = ""
-        if(typeColor[row?.type]){
+        if (typeColor[row?.type]) {
           bgColor = typeColor[row.type]
         }
         return (<div className={style.typeBgColor} style={{ backgroundColor: bgColor }}> </div>)
       },
       width: "120px",
-      style:{
+      style: {
         justifyContent: "center"
       }
     },
@@ -32,7 +33,7 @@ const Inventory = () => {
       selector: row => row.batchNumber,
       sortable: true,
       width: "90px",
-      style:{
+      style: {
         justifyContent: "center"
       }
     },
@@ -54,51 +55,48 @@ const Inventory = () => {
   ];
   const [listOfKegTrackers, setListOfKegTrackers] = useState([])
   useEffect(() => {
-    fetch("data.json")
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.kegs) {
-          try {
-            const addStatusToList = data.kegs.map((keg) => {
-              if (keg.volume >= 91 && keg.volume <= 100) {
-                keg.status = "Full"
-              } else if (keg.volume >= 11 && keg.volume <= 90) {
-                keg.status = "In Use"
-              } else if (keg.volume >= 0 && keg.volume <= 10) {
-                keg.status = "Empty"
-              }
-              return keg
-            });
-            setListOfKegTrackers([...addStatusToList])
-          } catch (err) {
-            console.log(err)
+
+    const fetchData = async () => {
+      const kegs = await getAllKegs();
+      if(kegs){
+        const addStatusToList = kegs.map((keg) => {
+          if (keg.volume >= 91 && keg.volume <= 100) {
+            keg.status = "Full"
+          } else if (keg.volume >= 11 && keg.volume <= 90) {
+            keg.status = "In Use"
+          } else if (keg.volume >= 0 && keg.volume <= 10) {
+            keg.status = "Empty"
           }
-        } else {
-          alert("There is problem to load data.");
-        }
-      })
+          return keg
+        });
+        setListOfKegTrackers([...addStatusToList])
+      } else {
+        alert("There is problem to load data.");
+      }
+    }
+    fetchData()
   }, [])
 
-  const renderProductTypeWithColor = ()=>{
-    var productColorOptions = Object.keys(typeColor).map(function(key) {
+  const renderProductTypeWithColor = () => {
+    var productColorOptions = Object.keys(typeColor).map(function (key) {
       let bgColor = ""
-        if(typeColor[key]){
-          bgColor = typeColor[key]
-        }
+      if (typeColor[key]) {
+        bgColor = typeColor[key]
+      }
       return (
         <div key={key} className={style.typeWrapper}>
-          <div  className={style.typeBgColor} style={{ backgroundColor: bgColor }}></div>
+          <div className={style.typeBgColor} style={{ backgroundColor: bgColor }}></div>
           {key}
         </div>
       )
-  });
+    });
     return (<div className={style.typeContainer}>{productColorOptions}</div>)
   }
   return <div>
     {listOfKegTrackers.length > 0 && (
       <>
-      {renderProductTypeWithColor()}
-      <Table data={listOfKegTrackers} columns={columns} />
+        {renderProductTypeWithColor()}
+        <Table data={listOfKegTrackers} columns={columns} />
       </>
     )
     }</div>;

@@ -4,21 +4,22 @@ import Dropdown from '../../components/dropdown/Dropdown';
 import GoogleMap from '../../components/google-map/GoogleMap';
 import Temperature from '../../components/temperature/Temperature';
 import Volume from '../../components/volume/Volume';
+import { getAllKegs } from '../../store/api/KegAPI';
 import style from './home.module.css';
 
 const Home = () => {
   const [listOfKegTrackers, setListOfKegTrackers] = useState([])
   const [kegTracker, setKegTracker] = useState(null)
   useEffect(() => {
-    fetch("data.json")
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.kegs) {
-          setListOfKegTrackers(data.kegs)
-        } else {
-          alert("There is problem to load data.");
-        }
-      })
+    const fetchData = async () => {
+      const kegs = await getAllKegs();
+      if (kegs) {
+        setListOfKegTrackers(kegs);
+      } else {
+        alert("There is problem to load data.");
+      }
+    }
+    fetchData();
   }, [])
 
   const handleOnChangeKegTracker = (value) => {

@@ -3,7 +3,7 @@ import {
     HomeIcon,
     IdentificationIcon,
   } from '@heroicons/react/outline';
-import { NAVIGATION_INVENTORY_PATH, NAVIGATION_KEG_AVAILABILITY_PATH, NAVIGATION_PRODUCT_AVAILABILITY, NAVIGATION_RETAILER_FULL_PRODUCT_PATH } from '../../store/NavigationConstant';
+import { NAVIGATION_INVENTORY_PATH, NAVIGATION_KEG_AVAILABILITY_PATH, NAVIGATION_PRODUCT_AVAILABILITY, NAVIGATION_RETAILER_FULL_PRODUCT_PATH } from '../../store/constant/NavigationConstant';
   
   export const sideMenu = [
     {
